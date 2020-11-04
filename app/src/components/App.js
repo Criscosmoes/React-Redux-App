@@ -1,5 +1,6 @@
 import React from 'react'
 import DogContainer from './DogContainer'
+import '../App.css'; 
 
 
 const App = () => {

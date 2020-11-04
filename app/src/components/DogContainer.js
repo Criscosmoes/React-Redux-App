@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { fetchDogs, clearDogs } from "./../actions/index";
 import { AnimatePresence, motion } from "framer-motion";
+import Spinner from './Spinner';
 
 const StyledDogContainer = styled.div`
   & {
@@ -35,7 +36,7 @@ const DogContainer = (props) => {
 
   const renderedList = props.dogs.map((cur, index) => {
     return (
-      <AnimatePresence>
+        <AnimatePresence>
         <motion.div
           exit={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -46,7 +47,7 @@ const DogContainer = (props) => {
         >
           <img src={cur} />
         </motion.div>
-      </AnimatePresence>
+      </AnimatePresence> 
     );
   });
 
@@ -66,3 +67,18 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, { fetchDogs, clearDogs })(DogContainer);
+
+
+
+{/* <AnimatePresence>
+        <motion.div
+          exit={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ delay: 0.5 }}
+          key={index}
+          className="dogs"
+        >
+          <img src={cur} />
+        </motion.div>
+      </AnimatePresence> */}
